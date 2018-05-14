@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 
 app.get('/api/contacts', (req, res) => {
 
+  // return res.status(500).json({error: 'Error retrieving records'});
+
   const contactsCollection = database.collection('contacts');
 
   contactsCollection.find({}).toArray((err, docs) => {
