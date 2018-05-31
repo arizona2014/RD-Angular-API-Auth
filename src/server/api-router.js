@@ -7,7 +7,7 @@ function apiRouter(database) {
 
   const router = express.Router();
 
-  app.get('/api/contacts', (req, res) => {
+  router.get('/contacts', (req, res) => {
 
       // return res.status(500).json({error: 'Error retrieving records'});
 
@@ -19,7 +19,7 @@ function apiRouter(database) {
 
   });
 
-  app.post('/api/contacts', (req, res) => {
+  router.post('/api/contacts', (req, res) => {
       const user = req.body;
 
     const contactsCollection = database.collection('contacts');
@@ -37,5 +37,8 @@ function apiRouter(database) {
 
   });
 
+  return router;
 
 }
+
+module.exports = apiRouter;
