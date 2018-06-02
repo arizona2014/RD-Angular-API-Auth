@@ -11,4 +11,12 @@ function createExpressApp(database) {
   app.use(bodyParser.json());
 
   app.use('/api', apiRouter(database));
+  app.use('*', (req, res) => {
+    return res.sendFile(path.join(__dirname, 'public/index.html'))
+  });
+
+  return app;
+
 }
+
+module.exports = createExpressApp;
