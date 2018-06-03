@@ -6,6 +6,7 @@ const apiRouter = require('./api-router');
 function createExpressApp(database) {
 
   const app = express();
+
   app.use(express.static(path.join(__dirname, 'public')));
   app.use('/profiles', express.static(path.join(__dirname, 'profiles')));
   app.use(bodyParser.json());
